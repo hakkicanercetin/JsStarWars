@@ -1,0 +1,62 @@
+.card
+{
+    width: 15rem;
+    filter: drop-shadow(10px 10px 4px #000);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: #68afd8 !important;
+    border-radius: 30px !important;
+}
+.card-img-top
+{
+    height: 23rem !important;
+    padding: 1rem;
+    border-radius: 50px !important;
+    filter: drop-shadow(10px 10px 4px #000);
+}
+.card-text,.card-title
+{
+    text-align: center;
+}
+.col-12 
+{
+    justify-content: center;
+    display: flex;
+}
+.row
+{
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+body
+{
+    min-height: 100vh;
+    background-image: linear-gradient(to right, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color : #fff !important;
+}
+#radiosArea .form-check
+{
+    justify-content: center;
+    display: flex;
+}
+.radiolabel
+{
+    display: inline-block;
+    background-color: transparent;
+    border: 3px solid rgba(255,255,255, 0.3);
+    padding: 1rem;
+    min-width: 10rem;
+    border-radius: 40px;
+    text-align: center;
+}
+.radiolabel:hover
+{
+    box-shadow: 0 0 12px rgb(0, 0, 0);
+}
+input[type="radio"]
+{
+    opacity: 0;
+}
