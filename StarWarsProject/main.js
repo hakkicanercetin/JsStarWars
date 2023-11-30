@@ -1,7 +1,8 @@
-let cardArea = document.getElementById("charactersArea")
+        let cardArea = document.getElementById("charactersArea")
         let radioArea = document.getElementById("radiosArea")
         let charactersShowOrHideButton = document.getElementById("charactersButton")
         charactersShowOrHideButton.addEventListener("click", charactersInfoAndChangeButton)
+        getOption()
         function charactersInfoAndChangeButton(){showOrHide()}
         function createCards()
         {
@@ -78,7 +79,6 @@ let cardArea = document.getElementById("charactersArea")
                     document.querySelector("#charactersArea .col-12").remove()
                 }
             }
-            
         }
         let homeworldUnique = []
         function uniqueHomeWorlds()
@@ -91,7 +91,7 @@ let cardArea = document.getElementById("charactersArea")
                 else{homeworldsRaw.push("other")}
             }
             homeworldsRaw.forEach(element => {
-                if(homeworldUnique.includes(element) == false)
+                if(homeworldUnique.includes(element.toLowerCase()) == false)
                 {homeworldUnique.push(element.toLowerCase())}
             });
             return homeworldUnique
@@ -156,4 +156,92 @@ let cardArea = document.getElementById("charactersArea")
                     columnCard.style.display = "flex"
                 }
             }
+        }
+        function getOption()
+        {
+            for(let i=0;i<people.characters.length;i++)
+        {
+            let opt = document.createElement("option")
+            opt.value = people.characters[i].name
+            opt.innerHTML = people.characters[i].name
+            document.getElementById("swcharacters").appendChild(opt)
+        }
+        }
+        let addObj = document.getElementById("sendbtn")
+        addObj.addEventListener("click", () =>
+        { 
+        form()
+        let x = submitOK
+        if(x == true)
+        {
+            fff()
+            for(let i=0;i<people.characters.length-1;i++)
+            {
+                document.querySelector("option").remove()
+            }
+            getOption()
+        }
+        document.getElementById("input-name").value = ""
+        document.getElementById("input-homeworld").value = ""
+        })
+        function fff()
+        {
+            let inputName = document.getElementById("input-name").value
+            let inputHomeWorld = document.getElementById("input-homeworld").value
+            let id = people.characters.length+5
+            people.characters.push({"id":id,"name":inputName,"pic":"https://vignette.wikia.nocookie.net/starwars/images/6/60/WedgeHelmetless-ROTJHD.jpg","homeworld":inputHomeWorld})
+            for(let i=0;i<homeworldUnique.length;i++)
+            {
+                document.querySelector(".form-check").remove()
+            }
+            createRadios()
+            for(let i=0;i<homeworldUnique.length;i++)
+        {
+            document.getElementsByClassName("radiolabel")[i].addEventListener("click",getFilteredHomeWorld)
+        }  
+        if(event.currentTarget.tagName  != "BUTTON")
+        {
+            getFilteredHomeWorld()
+        }
+        let dizi = []
+            for(i=0;i<charactersShowOrHideButton.classList.length;i++)
+            {
+                dizi.push(charactersShowOrHideButton.classList[i])
+            }
+            if(dizi.includes("btn-success"))
+            {
+                
+            }
+            else
+            {
+                charactersShowOrHideButton.classList.replace("btn-danger","btn-success")
+                charactersShowOrHideButton.innerHTML = "Karakterleri Göster"
+                for(let i=0;i<people.characters.length-1;i++)
+                {
+                    document.querySelector("#charactersArea .col-12").remove()
+                }
+                createCards()
+            }
+        }
+        function form()
+        {
+            var fname = document.getElementById("input-name").value;
+            var fhomeworld = document.getElementById("input-homeworld").value;
+            submitOK = true;
+            pattern = /[0-9]/g;
+            if(fhomeworld.search(pattern) != -1)
+            {
+                alert("Memleket rakam içeremez!");
+                submitOK = false;
+            }
+            if ((fname.search(pattern)) != -1) {
+                alert("İsim rakam içeremez!");
+                submitOK = false;
+            }
+            else if(fname.length > 15)
+            {
+                alert("İsim 15 karakterden daha büyük olamaz olamaz!");
+                submitOK = false;
+            }
+            return false;
         }

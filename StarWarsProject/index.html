@@ -11,8 +11,65 @@
 <body>
     <section>
         <div class="container">
-            <div class="justify-content-center d-flex mt-3 mb-3">
+            <div class="justify-content-center d-flex mt-3 mb-3 button-div">
                 <button id="charactersButton" class="btn btn-success">Karakterleri Göster</button>
+                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">Karakter Ekle</button>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal2">Karakter Sil</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background-color: rgb(27,31,34);">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Karakter Ekle</h1>
+        <button style="background-color: #fff !important;" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form onsubmit="form()">
+            <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">İsim:</label>
+            <input type="text" class="form-control" id="input-name">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Memleket:</label>
+            <input type="text" class="form-control" id="input-homeworld">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="sendbtn" >Ekle</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content" style="background-color: rgb(27,31,34);">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Karakter Sil</h1>
+          <button style="background-color: #fff !important;" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div>
+                <div class="d-flex justify-content-center align-items-center">
+                    <label for="characters">Silinecek karakteri seçiniz:</label>
+                <select name="characters" id="swcharacters">
+                    <option>Bir karakter seç</option>
+                    <!--<option value="volvo">Volvo</option>
+                    <option value="opel">Opel</option>
+                    <option value="audi">Audi</option>-->
+                </select>
+                </div>
+                <br><br>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+            <button class="btn btn-light w-100" id="deletebtn">Sil (Şuan çalışmıyor)</button>
+        </div>
+      </div>
+    </div>
+  </div>
             </div>
             <div id="radiosArea" class="row"></div>
             <div id="charactersArea" class="row"></div>
@@ -21,5 +78,26 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="characters.js"></script>
     <script src="main.js"></script>
+    <script>
+        /*let deleteBtn = document.getElementById("deletebtn");
+        deleteBtn.addEventListener("click", ()=>
+        {
+            let charac = document.getElementById("swcharacters")
+            let x = charac.options[charac.selectedIndex].value
+            for(let i=0;i<20;i++)
+            {
+                if(people.characters[i].name == x)
+                {
+                    people.characters.splice(i,1)
+                }
+            }
+            console.log(people.characters)
+            for(let i=0;i<people.characters.length-1;i++)
+                {
+                    document.querySelector("#charactersArea .col-12").remove()
+                }
+                createCards()
+        })*/
+    </script>
 </body>
 </html>

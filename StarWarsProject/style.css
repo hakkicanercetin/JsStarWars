@@ -5,13 +5,11 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
     background-color: #68afd8 !important;
-    border-radius: 30px !important;
 }
 .card-img-top
 {
-    height: 23rem !important;
-    padding: 1rem;
-    border-radius: 50px !important;
+    height: 17rem !important;
+    border-radius: 0 !important;
     filter: drop-shadow(10px 10px 4px #000);
 }
 .card-text,.card-title
@@ -31,10 +29,8 @@
 body
 {
     min-height: 100vh;
-    background-image: linear-gradient(to right, #051937, #004d7a, #008793, #00bf72, #a8eb12);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    background-image: url("bg.webp");
+    background-size: contain;
     color : #fff !important;
 }
 #radiosArea .form-check
@@ -59,4 +55,8 @@ body
 input[type="radio"]
 {
     opacity: 0;
+}
+.btn-warning
+{
+    color: #fff !important;
 }
