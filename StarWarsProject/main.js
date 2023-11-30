@@ -2,7 +2,7 @@
         let radioArea = document.getElementById("radiosArea")
         let charactersShowOrHideButton = document.getElementById("charactersButton")
         charactersShowOrHideButton.addEventListener("click", charactersInfoAndChangeButton)
-        createOption()
+        createOptions()
         function charactersInfoAndChangeButton(){showOrHide()}
         function createCards()
         {
@@ -157,7 +157,7 @@
                 }
             }
         }
-        function createOption()
+        function createOptions()
         {
             for(let i=0;i<people.characters.length;i++)
         {
@@ -171,19 +171,20 @@
         addObj.addEventListener("click", () =>
         { 
         form()
-        if(submitOK == true)
+        let x = submitOK
+        if(x == true)
         {
-            getCharacterToOption()
+            getCharactersToOptions()
             for(let i=0;i<people.characters.length-1;i++)
             {
                 document.querySelector("option").remove()
             }
-            createOption()
+            createOptions()
         }
         document.getElementById("input-name").value = ""
         document.getElementById("input-homeworld").value = ""
         })
-        function getCharacterToOption()
+        function getCharactersToOptions()
         {
             let inputName = document.getElementById("input-name").value
             let inputHomeWorld = document.getElementById("input-homeworld").value
@@ -250,7 +251,7 @@
             else if(fname.length < 1)
             {
                 alert("İsim boş olamaz!");
-            }
                 submitOK = false;
+            }
             return false;
         }
