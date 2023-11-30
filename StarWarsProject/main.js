@@ -183,6 +183,7 @@
         }
         document.getElementById("input-name").value = ""
         document.getElementById("input-homeworld").value = ""
+        document.getElementById("input-url").value = ""
         })
         function getCharactersToOptions()
         {
