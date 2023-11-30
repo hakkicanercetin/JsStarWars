@@ -2,7 +2,7 @@
         let radioArea = document.getElementById("radiosArea")
         let charactersShowOrHideButton = document.getElementById("charactersButton")
         charactersShowOrHideButton.addEventListener("click", charactersInfoAndChangeButton)
-        getOption()
+        createOption()
         function charactersInfoAndChangeButton(){showOrHide()}
         function createCards()
         {
@@ -157,7 +157,7 @@
                 }
             }
         }
-        function getOption()
+        function createOption()
         {
             for(let i=0;i<people.characters.length;i++)
         {
@@ -171,25 +171,25 @@
         addObj.addEventListener("click", () =>
         { 
         form()
-        let x = submitOK
-        if(x == true)
+        if(submitOK == true)
         {
-            fff()
+            getCharacterToOption()
             for(let i=0;i<people.characters.length-1;i++)
             {
                 document.querySelector("option").remove()
             }
-            getOption()
+            createOption()
         }
         document.getElementById("input-name").value = ""
         document.getElementById("input-homeworld").value = ""
         })
-        function fff()
+        function getCharacterToOption()
         {
             let inputName = document.getElementById("input-name").value
             let inputHomeWorld = document.getElementById("input-homeworld").value
+            let inputPhoto = document.getElementById("input-url").value
             let id = people.characters.length+5
-            people.characters.push({"id":id,"name":inputName,"pic":"https://vignette.wikia.nocookie.net/starwars/images/6/60/WedgeHelmetless-ROTJHD.jpg","homeworld":inputHomeWorld})
+            people.characters.push({"id":id,"name":inputName,"pic":inputPhoto,"homeworld":inputHomeWorld})
             for(let i=0;i<homeworldUnique.length;i++)
             {
                 document.querySelector(".form-check").remove()
@@ -234,14 +234,23 @@
                 alert("Memleket rakam içeremez!");
                 submitOK = false;
             }
+            else if(fhomeworld.length<1)
+            {
+                alert("Memleket boş olamaz!");
+                submitOK = false;
+            }
             if ((fname.search(pattern)) != -1) {
                 alert("İsim rakam içeremez!");
                 submitOK = false;
             }
             else if(fname.length > 15)
             {
-                alert("İsim 15 karakterden daha büyük olamaz olamaz!");
-                submitOK = false;
+                alert("İsim 15 karakterden daha büyük  olamaz!");
             }
+            else if(fname.length < 1)
+            {
+                alert("İsim boş olamaz!");
+            }
+                submitOK = false;
             return false;
         }
