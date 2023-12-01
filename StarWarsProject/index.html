@@ -13,8 +13,8 @@
         <div class="container">
             <div class="justify-content-center d-flex mt-3 mb-3 button-div">
                 <button id="charactersButton" class="btn btn-success">Karakterleri Göster</button>
-                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">Karakter Ekle</button>
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal2">Karakter Sil</button>
+                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" id="btn1" onclick="addCharacter()">Karakter Ekle</button>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal2" id="btn2">Karakter Sil</button>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -69,7 +69,7 @@
         </form>
     </div>
     <div class="modal-footer">
-            <button class="btn btn-light w-100" id="deletebtn">Sil (Şuan çalışmıyor)</button>
+            <button class="btn w-100 btn-danger" id="deletebtn">Sil</button>
         </div>
       </div>
     </div>
@@ -83,25 +83,7 @@
     <script src="characters.js"></script>
     <script src="main.js"></script>
     <script>
-        /*let deleteBtn = document.getElementById("deletebtn");
-        deleteBtn.addEventListener("click", ()=>
-        {
-            let charac = document.getElementById("swcharacters")
-            let x = charac.options[charac.selectedIndex].value
-            for(let i=0;i<20;i++)
-            {
-                if(people.characters[i].name == x)
-                {
-                    people.characters.splice(i,1)
-                }
-            }
-            console.log(people.characters)
-            for(let i=0;i<people.characters.length-1;i++)
-                {
-                    document.querySelector("#charactersArea .col-12").remove()
-                }
-                createCards()
-        })*/
+        
     </script>
 </body>
 </html>
