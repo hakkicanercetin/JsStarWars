@@ -10,18 +10,22 @@
             for(let i=0;i<people.characters.length;i++)
             {
                 /*Bu koşul her butona tıkladığınıda tekrar card oluşturduğu için gerekli*/
-                if(document.getElementsByClassName("card").length < people.characters.length)
+                if(document.getElementsByClassName("cardx").length < people.characters.length)
                 {
                 let column = document.createElement("div")
                 column.classList.add("col-12","col-sm-6","col-md-4","col-lg-3");
                 cardArea.appendChild(column);
                 let card = document.createElement("div");
-                card.classList.add("card");
+                card.classList.add("cardx");
                 column.appendChild(card);
-                let image = document.createElement("img");
-                image.classList.add("card-img-top");
-                image.alt = "characters"
-                image.src = people.characters[i].pic
+                let bgimage = document.createElement("div");
+                bgimage.classList.add("bg");
+                cardBgImage="https://i.ibb.co/ZdGBm4K/m-background.png"
+                bgimage.style.background = `url(${cardBgImage}})`
+                card.appendChild(bgimage);
+                let image = document.createElement("div");
+                image.classList.add("cardx-img-top");
+                image.style.background = `url(${people.characters[i].pic})`
                 card.appendChild(image);
                 let cardBody = document.createElement("div")
                 cardBody.classList.add("card-body")
@@ -150,7 +154,7 @@
             for(let i=0;i<people.characters.length;i++)
             {
                 let columnCard = cardArea.getElementsByClassName("col-12")[i]
-                let filteredCard = columnCard.querySelector(".card")
+                let filteredCard = columnCard.querySelector(".cardx")
                 if(filteredCard.id.toLocaleUpperCase() != event.currentTarget.querySelector(".form-check .form-check-label").innerHTML)
                 {
                     columnCard.style.display = "none"
@@ -317,7 +321,7 @@
             for(let i=0;i<people.characters.length;i++)
             {
                 let columnCard = cardArea.getElementsByClassName("col-12")[i]
-                let filteredCard = columnCard.querySelector(".card")
+                let filteredCard = columnCard.querySelector(".cardx")
                 if(filteredCard.id.toLocaleUpperCase() != event.currentTarget.querySelector(".form-check .form-check-label").innerHTML)
                 {
                     columnCard.style.display = "none"
